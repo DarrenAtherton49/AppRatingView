@@ -100,7 +100,6 @@ public class AppRatingView extends CoordinatorLayout implements RatingView {
         AppRatingModel model = new AppRatingModelImpl(); // todo pass builder attributes into constructor here
         this.appRatingPresenter = new AppRatingPresenterImpl();
         this.appRatingPresenter.init(model);
-        this.appRatingPresenter.attachView(this);
     }
 
     @Override
@@ -120,6 +119,8 @@ public class AppRatingView extends CoordinatorLayout implements RatingView {
 //                .findViewById(R.id.sidespinner_view_next);
 //        mNextButton
 //                .setBackgroundResource(android.R.drawable.ic_media_next);
+
+        this.appRatingPresenter.attachView(this);
     }
 
     public void renderInitialView() {
