@@ -34,7 +34,8 @@ public class AppRatingPresenterImpl implements AppRatingPresenter {
 
     }
 
-    public void onRatingChanged(int rating) {
-
+    public void onRatingChanged(float rating) {
+        //todo update the rating in the model
+        //todo add an event to the event log (could do this in the model instead)
     }
 }

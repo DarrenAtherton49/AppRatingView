@@ -17,5 +17,5 @@ public interface AppRatingPresenter {
 
     void onBackdropTouched();
 
-    void onRatingChanged(int rating);
+    void onRatingChanged(float rating);
 }

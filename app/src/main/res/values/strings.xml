@@ -1,9 +1,8 @@
 <resources>
     <string name="app_name">AppRatingView</string>
     <string name="main_activity_name">AppRatingView</string>
-    <string name="title_activity_main2">Main2Activity</string>
 
-    <string name="app_rating_view_header_text"></string>
-    <string name="app_rating_view_body_text"></string>
+    <string name="app_rating_view_header_text">Rate Our App</string>
+    <string name="app_rating_view_body_text">How would you rate your experience using our app?</string>
     <string name="app_rating_view_dismiss_text">Not Now</string>
 </resources>

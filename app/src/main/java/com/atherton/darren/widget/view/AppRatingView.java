@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import android.view.animation.OvershootInterpolator;
+import android.widget.RatingBar;
 
 import com.atherton.darren.appratingview.R;
 import com.atherton.darren.widget.model.AppRatingModel;
@@ -38,9 +39,9 @@ public class AppRatingView extends CoordinatorLayout implements RatingView {
     private final int headerTextColor;
     private final int bodyTextColor;
     private final int dismissButtonTextColor;
-    private final String headerText;
-    private final String bodyText;
-    private final String dismissText;
+    private final int headerTextId;
+    private final int bodyTextId;
+    private final int dismissTextId;
     private final Interpolator interpolator;
 
     private AppRatingListener appRatingListener;
@@ -65,9 +66,9 @@ public class AppRatingView extends CoordinatorLayout implements RatingView {
         this.headerTextColor = builder.headerTextColor;
         this.bodyTextColor = builder.bodyTextColor;
         this.dismissButtonTextColor =  builder.dismissTextColor;
-        this.headerText = builder.headerText;
-        this.bodyText = builder.bodyText;
-        this.dismissText = builder.dismissText;
+        this.headerTextId = builder.headerTextId;
+        this.bodyTextId = builder.bodyTextId;
+        this.dismissTextId = builder.dismissTextId;
         this.interpolator = builder.interpolator;
         this.appRatingListener = builder.appRatingListener;
         initViews(builder.context, builder.parent);
@@ -142,7 +143,14 @@ public class AppRatingView extends CoordinatorLayout implements RatingView {
         }
     }
 
-
+    //todo attach this to the RatingBar when it is initialized
+    private RatingBar.OnRatingBarChangeListener ratingBarChangeListener = new RatingBar.OnRatingBarChangeListener() {
+        @Override public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+            if (fromUser) {
+                appRatingPresenter.onRatingChanged(rating);
+            }
+        }
+    };
 
 
 
@@ -168,9 +176,9 @@ public class AppRatingView extends CoordinatorLayout implements RatingView {
         private int headerTextColor = R.color.app_rating_view_header;
         private int bodyTextColor = R.color.app_rating_view_body;
         private int dismissTextColor = R.color.app_rating_view_dismiss;
-        private String headerText = context.getString(R.string.app_rating_view_header_text);
-        private String bodyText = context.getString(R.string.app_rating_view_body_text);
-        private String dismissText = context.getString(R.string.app_rating_view_dismiss_text);
+        private int headerTextId = R.string.app_rating_view_header_text;
+        private int bodyTextId = R.string.app_rating_view_body_text;
+        private int dismissTextId = R.string.app_rating_view_dismiss_text;
         private Interpolator interpolator = new OvershootInterpolator();
 
         private AppRatingListener appRatingListener;
@@ -223,18 +231,18 @@ public class AppRatingView extends CoordinatorLayout implements RatingView {
             return this;
         }
 
-        public Builder headerText(String headerText) {
-            this.headerText = headerText;
+        public Builder headerTextId(int headerTextId) {
+            this.headerTextId = headerTextId;
             return this;
         }
 
-        public Builder bodyText(String bodyText) {
-            this.bodyText = bodyText;
+        public Builder bodyTextId(int bodyTextId) {
+            this.bodyTextId = bodyTextId;
             return this;
         }
 
-        public Builder dismissText(String dismissText) {
-            this.dismissText = dismissText;
+        public Builder dismissTextId(int dismissTextId) {
+            this.dismissTextId = dismissTextId;
             return this;
         }
 
