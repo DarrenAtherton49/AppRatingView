@@ -1,4 +1,4 @@
-package com.atherton.darren.widget;
+package com.atherton.darren.widget.view;
 
 import android.content.Context;
 import android.support.design.widget.CoordinatorLayout;
@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 
 import com.atherton.darren.appratingview.R;
 
-public class AppRatingLayout extends CoordinatorLayout {
+public class AppRatingViewImpl extends CoordinatorLayout implements AppRatingView {
 
 //    private final View backdrop;
 //    private final FloatingActionButton doneButton;
@@ -23,17 +23,17 @@ public class AppRatingLayout extends CoordinatorLayout {
 //    private final int bodyTextColor;
 //    private final int dismissButtonTextColor;
 
-    public AppRatingLayout(Context context) {
+    public AppRatingViewImpl(Context context) {
         super(context);
         initViews(context);
     }
 
-    public AppRatingLayout(Context context, AttributeSet attrs) {
+    public AppRatingViewImpl(Context context, AttributeSet attrs) {
         super(context, attrs);
         initViews(context);
     }
 
-    public AppRatingLayout(Context context, AttributeSet attrs, int defStyle) {
+    public AppRatingViewImpl(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         initViews(context);
     }
@@ -67,5 +67,17 @@ public class AppRatingLayout extends CoordinatorLayout {
 //                .findViewById(R.id.sidespinner_view_next);
 //        mNextButton
 //                .setBackgroundResource(android.R.drawable.ic_media_next);
+    }
+
+    public void renderInitialView() {
+
+    }
+
+    public void enableDoneButton() {
+
+    }
+
+    public void dismissView() {
+
     }
 }
