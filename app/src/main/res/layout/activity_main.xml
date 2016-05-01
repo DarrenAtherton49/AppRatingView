@@ -21,10 +21,12 @@
             android:text="Test Text"/>
     </FrameLayout>
 
+    <!--
     <com.atherton.darren.widget.view.AppRatingLayoutImpl
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
     </com.atherton.darren.widget.view.AppRatingLayoutImpl>
+    -->
 
 </android.support.design.widget.CoordinatorLayout>

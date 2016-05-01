@@ -1,13 +1,15 @@
 package com.atherton.darren.widget.presenter;
 
 import com.atherton.darren.widget.model.AppRatingModel;
-import com.atherton.darren.widget.view.AppRatingView;
+import com.atherton.darren.widget.view.RatingView;
 
 public interface AppRatingPresenter {
 
     void init(AppRatingModel appRatingModel);
 
-    void setView(AppRatingView appRatingView);
+    void attachView(RatingView appRatingView);
+
+    void destroy();
 
     void onDoneClicked();
 
