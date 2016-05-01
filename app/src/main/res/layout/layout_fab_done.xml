@@ -6,4 +6,4 @@
     android:layout_height="wrap_content"
     app:layout_anchor="@id/appratingcard_card_view"
     app:layout_anchorGravity="top|right"
-    android:src="@drawable/ic_done" />
+    android:src="@drawable/ic_app_rating_view_done" />
