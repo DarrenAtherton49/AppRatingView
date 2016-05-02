@@ -6,6 +6,9 @@
         <item name="colorPrimary">#212121</item>
         <item name="colorPrimaryDark">#212121</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlHighlight">@color/ripple_material_light</item>
+        <item name="android:textColorPrimary">#000</item>
+        <item name="android:textColorSecondary">#de2020</item>
     </style>
 
     <style name="AppTheme" parent="AppTheme.Base">
@@ -15,5 +18,39 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="ButtonDone" parent="Base.Widget.AppCompat.ImageButton">
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppRatingViewCardHeader" parent="@android:style/Widget.TextView">
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">@color/app_rating_view_header</item>
+    </style>
+
+    <style name="AppRatingViewCardBody" parent="@android:style/Widget.TextView">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/app_rating_view_body</item>
+    </style>
+
+    <style name="AppRatingViewRatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/app_rating_view_ratingbar_normal</item>
+        <item name="colorControlActivated">@color/app_rating_view_ratingbar_activated</item>
+    </style>
+
+    <style name="ButtonDismiss" parent="Theme.AppCompat.Light">
+        <item name="android:textColor">@color/app_rating_view_dismiss</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+    </style>
+
+    <style name="AppRatingViewCardStyle" parent="Theme.AppCompat.Light">
+        <item name="cardCornerRadius">2dp</item>
+        <item name="cardElevation">2dp</item>
+        <item name="contentPaddingBottom">16dp</item>
+        <item name="contentPaddingTop">24dp</item>
+        <item name="contentPaddingLeft">16dp</item>
+        <item name="contentPaddingRight">16dp</item>
+        <item name="cardBackgroundColor">@color/white</item>
+    </style>
 
 </resources>

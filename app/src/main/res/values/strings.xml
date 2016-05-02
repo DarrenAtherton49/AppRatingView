@@ -2,7 +2,7 @@
     <string name="app_name">AppRatingView</string>
     <string name="main_activity_name">AppRatingView</string>
 
-    <string name="app_rating_view_header_text">Rate Our App</string>
-    <string name="app_rating_view_body_text">How would you rate your experience using our app?</string>
-    <string name="app_rating_view_dismiss_text">Not Now</string>
+    <string name="header_text_app_rating_view">Rate Our App</string>
+    <string name="body_text_app_rating_view">How would you rate your experience using our app?</string>
+    <string name="dismiss_text_app_rating_view">Not Now</string>
 </resources>

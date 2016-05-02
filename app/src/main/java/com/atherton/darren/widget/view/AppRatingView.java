@@ -2,11 +2,16 @@ package com.atherton.darren.widget.view;
 
 import android.content.Context;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import android.view.animation.OvershootInterpolator;
+import android.widget.Button;
 import android.widget.RatingBar;
+import android.widget.TextView;
 
 import com.atherton.darren.appratingview.R;
 import com.atherton.darren.widget.model.AppRatingModel;
@@ -47,13 +52,13 @@ public class AppRatingView extends CoordinatorLayout implements RatingView {
     private AppRatingListener appRatingListener;
     private AppRatingPresenter appRatingPresenter;
 
-//    private final View backdrop;
-//    private final FloatingActionButton doneButton;
-//    private final TextView headerTextView;
-//    private final TextView bodyTextView;
-//    private final TextView dismissButton;
-//    private final RatingBar ratingBar;
-//
+    private View backdrop;
+    private CardView cardView;
+    private TextView headerTextView;
+    private TextView bodyTextView;
+    private RatingBar ratingBar;
+    private Button dismissButton;
+    private FloatingActionButton doneButton;
 
     private AppRatingView(Builder builder) {
         super(builder.context);
@@ -82,10 +87,54 @@ public class AppRatingView extends CoordinatorLayout implements RatingView {
      *           the current context for the view.
      */
     private void initViews(Context context, ViewGroup viewGroup) {
+
         setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
-        LayoutInflater inflater = (LayoutInflater) context
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        inflater.inflate(R.layout.layout_app_rating_view, viewGroup, true);
+
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View view = inflater.inflate(R.layout.layout_app_rating_view, viewGroup, true);
+
+        initBackdrop(view);
+        initCardView(view);
+        initHeader(view);
+        initBody(view);
+        initRatingBar(view);
+        initDismissButton(view);
+        initDoneButton(view);
+    }
+
+    private void initBackdrop(View parentView) {
+        backdrop = parentView.findViewById(R.id.view_backdrop_app_rating_view);
+        //todo set backdrop touched listener which calls presenter
+    }
+
+    private void initCardView(View parentView) {
+        cardView = (CardView) parentView.findViewById(R.id.cardview_app_rating_view);
+        //todo setup initial position, visibilty and animations here
+    }
+
+    private void initHeader(View parentView) {
+        headerTextView = (TextView) parentView.findViewById(R.id.textview_header_app_rating_View);
+        //todo set attribute from builder etc (colors)
+    }
+
+    private void initBody(View parentView) {
+        bodyTextView = (TextView) parentView.findViewById(R.id.textview_body_app_rating_View);
+        //todo set attribute from builder etc (colors)
+    }
+
+    private void initRatingBar(View parentView) {
+        ratingBar = (RatingBar) parentView.findViewById(R.id.ratingbar_app_rating_view);
+        //todo set attribute from builder etc (colors)
+    }
+
+    private void initDismissButton(View parentView) {
+        dismissButton = (Button) parentView.findViewById(R.id.button_dismiss_app_rating_view);
+        //todo set attribute from builder etc (colors), clicklistener to call presenter
+    }
+
+    private void initDoneButton(View parentView) {
+        doneButton = (FloatingActionButton) parentView.findViewById(R.id.fab_done_app_rating_view);
+        //todo set attribute from builder etc (colors), clicklistener to call presenter
     }
 
     /**
@@ -97,34 +146,15 @@ public class AppRatingView extends CoordinatorLayout implements RatingView {
      *           the builder object passes into the view
      */
     private void initPresenter(Builder builder) {
-        AppRatingModel model = new AppRatingModelImpl(); // todo pass builder attributes into constructor here
+        // todo pass builder attributes into constructor here
+        AppRatingModel model = new AppRatingModelImpl(builder.totalStars);
         this.appRatingPresenter = new AppRatingPresenterImpl();
         this.appRatingPresenter.init(model);
-    }
-
-    @Override
-    protected void onFinishInflate() {
-        super.onFinishInflate();
-
-//        // Sets the images for the previous and next buttons. Uses
-//        // built-in images so you don't need to add images, but in
-//        // a real application your images should be in the
-//        // application package so they are always available.
-//        mPreviousButton = (Button) this
-//                .findViewById(R.id.sidespinner_view_previous);
-//        mPreviousButton
-//                .setBackgroundResource(android.R.drawable.ic_media_previous);
-//
-//        mNextButton = (Button)this
-//                .findViewById(R.id.sidespinner_view_next);
-//        mNextButton
-//                .setBackgroundResource(android.R.drawable.ic_media_next);
-
         this.appRatingPresenter.attachView(this);
     }
 
     public void renderInitialView() {
-
+        //todo start the animation to bring the view onto the screen
     }
 
     public void enableDoneButton() {
@@ -177,15 +207,15 @@ public class AppRatingView extends CoordinatorLayout implements RatingView {
         private int headerTextColor = R.color.app_rating_view_header;
         private int bodyTextColor = R.color.app_rating_view_body;
         private int dismissTextColor = R.color.app_rating_view_dismiss;
-        private int headerTextId = R.string.app_rating_view_header_text;
-        private int bodyTextId = R.string.app_rating_view_body_text;
-        private int dismissTextId = R.string.app_rating_view_dismiss_text;
+        private int headerTextId = R.string.header_text_app_rating_view;
+        private int bodyTextId = R.string.body_text_app_rating_view;
+        private int dismissTextId = R.string.dismiss_text_app_rating_view;
         private Interpolator interpolator = new OvershootInterpolator();
 
         private AppRatingListener appRatingListener;
 
         // Optional parameters - model attributes
-        private int numberOfStars = 5;
+        private int totalStars = 5;
 
         public Builder(Context context, ViewGroup parent) {
             this.context = context;
@@ -254,6 +284,11 @@ public class AppRatingView extends CoordinatorLayout implements RatingView {
 
         public Builder addListener(AppRatingListener listener) {
             this.appRatingListener = listener;
+            return this;
+        }
+
+        public Builder totalStars(int totalStars) {
+            this.totalStars = totalStars;
             return this;
         }
 

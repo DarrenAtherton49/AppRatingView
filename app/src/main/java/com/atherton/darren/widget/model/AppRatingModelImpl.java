@@ -2,7 +2,9 @@ package com.atherton.darren.widget.model;
 
 public class AppRatingModelImpl implements AppRatingModel {
 
-    public AppRatingModelImpl() {
+    private int totalStars;
 
+    public AppRatingModelImpl(int totalStars) {
+        this.totalStars = totalStars;
     }
 }
