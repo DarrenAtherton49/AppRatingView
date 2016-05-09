@@ -4,8 +4,9 @@ import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
 
-import com.atherton.darren.appratingview.R;
-import com.atherton.darren.widget.view.AppRatingView;
+import com.atherton.darren.feedbackview.R;
+import com.atherton.darren.widget.base.BaseFeedbackView;
+import com.atherton.darren.widget.FeedbackView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,9 +15,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(getContentView());
 
         CoordinatorLayout main = (CoordinatorLayout) findViewById(R.id.coordinatorlayout_main);
-//        AppRatingView view = new AppRatingView(this);
+//        AppFeedbackView view = new AppFeedbackView(this);
 //        main.addView(view);
-        AppRatingView view = new AppRatingView.Builder(this, main)
+        FeedbackView view = new BaseFeedbackView.Builder(this, main)
                 .build();
     }
 

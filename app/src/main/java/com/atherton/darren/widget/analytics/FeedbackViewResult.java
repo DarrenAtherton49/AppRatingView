@@ -1,8 +1,8 @@
-package com.atherton.darren.widget.model.analytics;
+package com.atherton.darren.widget.analytics;
 
 import java.util.ArrayList;
 
-public class AppRatingResult {
+public class FeedbackViewResult {
 
     public enum Result {
 
@@ -22,12 +22,12 @@ public class AppRatingResult {
     }
 
     private Result result;
-    private AppRatingEventLog eventLog;
+    private FeedbackViewEventLog eventLog;
     private int totalStars;
     private int starsGiven;
 
-    public AppRatingResult(Result result, AppRatingEventLog eventLog, int totalStars,
-                           int starsGiven) {
+    public FeedbackViewResult(Result result, FeedbackViewEventLog eventLog, int totalStars,
+                              int starsGiven) {
         this.result = result;
         this.eventLog = eventLog;
         this.totalStars = totalStars;

@@ -1,8 +1,8 @@
-package com.atherton.darren.widget.view;
+package com.atherton.darren.widget;
 
-import com.atherton.darren.widget.model.analytics.AppRatingResult;
+import com.atherton.darren.widget.analytics.FeedbackViewResult;
 
-public interface RatingView {
+public interface FeedbackView {
 
     /**
      * Renders the initial content - empty RatingBar etc.
@@ -23,5 +23,5 @@ public interface RatingView {
      * Dismisses the view using animation and sends callback to
      * the view which instantiated this view.
      */
-    void dismissView(AppRatingResult appRatingResult);
+    void dismissView(FeedbackViewResult feedbackViewResult);
 }

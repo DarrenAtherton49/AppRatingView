@@ -1,4 +1,4 @@
-# AppRatingView - Android
+# FeedbackView - Android
 
 ## Licence
 

@@ -1,27 +1,31 @@
-package com.atherton.darren.widget.model.analytics;
+package com.atherton.darren.widget.analytics;
 
 import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Date;
 
-public class AppRatingEventLog {
+public class FeedbackViewEventLog {
 
-    private static final String TAG = "AppRatingEventLog";
+    private static final String TAG = "FeedbackViewEventLog";
 
     private ArrayList<String> eventList;
+
+    public FeedbackViewEventLog() {
+        eventList = new ArrayList<>();
+    }
 
     private void addEvent(String eventString) {
         eventList.add(eventString);
     }
 
-    public void addRatingViewShownEvent(Date date) {
-        String toAdd = new String(); // todo some date to string conversion here instead
+    public void addFeedbackViewShownEvent(Date date) {
+        String toAdd = ""; // todo some date to string conversion here instead
         addEvent(toAdd);
     }
 
-    public void addRatingViewDismissedEvent(Date date) {
-        String toAdd = new String(); // todo some date to string conversion here instead
+    public void addFeedbackViewDismissedEvent(Date date) {
+        String toAdd = ""; // todo some date to string conversion here instead
         addEvent(toAdd);
     }
 
