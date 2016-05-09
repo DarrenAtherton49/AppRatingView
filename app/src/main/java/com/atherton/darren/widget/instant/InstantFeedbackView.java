@@ -24,12 +24,8 @@ public class InstantFeedbackView extends BaseFeedbackView implements InstantView
     private BaseFeedbackPresenter feedbackPresenter;
 
     private InstantFeedbackView(Builder builder) {
-        super(builder.context, builder.parent);
-        this.context = builder.context.getApplicationContext();
-        this.viewStyle = builder.viewStyle;
-        this.interpolator = builder.interpolator;
-        this.feedbackViewListener = builder.feedbackViewListener;
-        initView(builder.context, builder.parent);
+        super(builder.context, builder.parent, builder.viewStyle,
+                builder.interpolator, builder.feedbackViewListener);
         initPresenter(builder);
     }
 

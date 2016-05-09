@@ -43,8 +43,14 @@ public abstract class BaseFeedbackView extends CoordinatorLayout implements Feed
     protected Button dismissButton;
     protected FloatingActionButton doneButton;
 
-    public BaseFeedbackView(Context context, ViewGroup parentLayout) {
+    public BaseFeedbackView(Context context, ViewGroup parentLayout, FeedbackViewStyle viewStyle,
+                            Interpolator interpolator, FeedbackViewListener feedbackViewListener) {
         super(context);
+        this.context = context.getApplicationContext();
+        this.viewStyle = viewStyle;
+        this.interpolator = interpolator;
+        this.feedbackViewListener = feedbackViewListener;
+        initView(context, parentLayout);
     }
 
     /**
@@ -53,7 +59,7 @@ public abstract class BaseFeedbackView extends CoordinatorLayout implements Feed
      * @param context
      *           the current context for the view.
      */
-    protected abstract void initView(Context context, ViewGroup viewGroup);
+    protected abstract void initView(Context context, ViewGroup parentLayout);
 
     public void renderInitialView() {
 
