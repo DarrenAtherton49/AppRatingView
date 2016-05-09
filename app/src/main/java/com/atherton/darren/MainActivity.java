@@ -5,8 +5,8 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
 
 import com.atherton.darren.feedbackview.R;
-import com.atherton.darren.widget.base.BaseFeedbackView;
 import com.atherton.darren.widget.FeedbackView;
+import com.atherton.darren.widget.instant.InstantFeedbackView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         CoordinatorLayout main = (CoordinatorLayout) findViewById(R.id.coordinatorlayout_main);
 //        AppFeedbackView view = new AppFeedbackView(this);
 //        main.addView(view);
-        FeedbackView view = new BaseFeedbackView.Builder(this, main)
+        FeedbackView view = new InstantFeedbackView.Builder(this, main)
                 .build();
     }
 
